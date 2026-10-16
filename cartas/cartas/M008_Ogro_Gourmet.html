@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ogro Gourmet - As Cr&#244;nicas do V&#233;u Partido - As Cr&#244;nicas do V&#233;u Partido</title>
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <style>
+    body { background: var(--cor-fundo); min-height: 100vh; display: flex; flex-direction: column; }
+    .card-header { padding: 30px 20px; border-bottom: 2px solid rgba(200,168,130,0.3); text-align: center; }
+    .back-btn { display: inline-block; padding: 8px 16px; background: rgba(92,58,33,0.2); border: 1px solid rgba(200,168,130,0.3); border-radius: 3px; color: var(--cor-texto-claro); text-decoration: none; font-family: var(--fonte-principal); font-size: 13px; margin-bottom: 20px; }
+    .back-btn:hover { background: rgba(200,168,130,0.15); border-color: rgba(200,168,130,0.6); }
+    .carta-card { background: var(--cor-fundo-suave); border: 2px solid rgba(200,168,130,0.3); border-radius: 4px; overflow: hidden; box-shadow: var(--sombra-principal); max-width: 800px; margin: 0 auto; }
+    .carta-capa-card { position: relative; width: 100%; aspect-ratio: 4/5; overflow: hidden; background: linear-gradient(135deg, var(--cor-rua), var(--cor-magra)); display: flex; align-items: flex-end; min-height: 400px; }
+    .carta-capa-card::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,20,16,0.6) 0%, rgba(26,20,16,0.3) 50%, rgba(26,20,16,0.8) 100%); }
+    .carta-capa-card::before { content: ''; position: absolute; inset: -2px; border: 2px solid rgba(255, 215, 0, 0.2); pointer-events: none; }
+    .carta-corpo-card { padding: 24px; max-width: 800px; }
+    .carta-visual { font-size: 13px; color: var(--cor-secundario); margin-bottom: 12px; line-height: 1.5; }
+    .carta-dados { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+    .carta-dados-grid { background: rgba(200, 168, 130, 0.05); border-left: 2px solid rgba(255, 215, 0, 0.3); padding: 8px 10px; border-radius: 0 3px 3px 0; font-size: 12px; }
+    .carta-dados-grid .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-secundario); margin-bottom: 2px; font-family: var(--fonte-secundaria); }
+    .carta-dados-grid .valor { font-size: 16px; font-weight: bold; color: var(--cor-brilho); }
+    .carta-efeito { background: rgba(92,58,33,0.15); border-left: 2px solid rgba(200,168,130,0.4); padding: 10px 12px; border-radius: 0 3px 3px 0; font-size: 13px; line-height: 1.5; }
+    .carta-efeito .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-secundario); margin-bottom: 4px; font-family: var(--fonte-secundaria); }
+    .carta-efeito .valor { font-size: 14px; color: var(--cor-brilho); }
+    .carta-recompensa { display: flex; gap: 16px; margin-top: 12px; padding-top: 12px; border-top: 1px solid rgba(200,168,130,0.2); }
+    .carta-recompensa .item { flex: 1; display: flex; flex-direction: column; gap: 4px; padding: 8px; background: rgba(200,168,130,0.05); border-radius: 3px; font-size: 12px; }
+    .carta-recompensa .item .label { color: var(--cor-secundario); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; }
+    .carta-recompensa .item .valor { font-weight: bold; color: var(--cor-brilho); }
+    .carta-fuga { background: rgba(107,58,42,0.15); border-left: 2px solid rgba(200,168,130,0.4); padding: 10px 12px; border-radius: 0 3px 3px 0; font-size: 13px; line-height: 1.5; margin-top: auto; }
+    .carta-fuga .label { font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--cor-secundario); margin-bottom: 4px; font-family: var(--fonte-secundaria); }
+    .carta-fuga .valor { font-size: 14px; color: var(--cor-brilho); }
+  </style>
+</head>
+<body>
+  <div class="card-header">
+    <a href="../index.html" class="back-btn">&larr; Voltar para a galeria</a>
+    <h1>Ogro Gourmet</span>
+    <p style="color: var(--cor-secundario); font-size: 13px;">masmorra · SUBmasmorra</p>
+  </div>
+
+  <div class="carta-card">
+    <div class="carta-capa-card">
+      <div style="position: relative; z-index: 1; width: 100%; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px;">
+        <span style="font-size: 12px; color: var(--cor-brilho); opacity: 0.9;">M008</span>
+        <span style="font-size: 14px; color: var(--cor-brilho); opacity: 0.85;">masmorra_UPPER</span>
+      </div>
+    </div>
+
+    <div class="carta-corpo-card">
+      <div class="carta-visual">&#128245; <em>Ilustra&#231;&#227;o:</em> Um ogro enorme com avental manchado, chapéu de cozinheiro e cutelo serrilhado. Um caldeirão fumega atrás dele, cheio de ingredientes que parecem suspeitosamente mágicos.</div>
+
+      <div class="carta-dados">
+        <div class="carta-dados-grid">
+          <div class="label">N&#198;vel</div>
+          <div class="valor">5</div>
+        </div>
+        <div class="carta-dados-grid">
+          <div class="label">Subtipo</div>
+          <div class="valor">SUBmasmorra</div>
+        </div>
+      </div>
+
+      <div class="carta-efeito">
+        <div class="label">Efeito</div>
+        <div class="valor">Se o aventureiro não tiver nenhuma carta de item na mesa, o Ogro recebe +3 níveis.</div>
+      </div>
+
+<div class="carta-recompensa"><div class="item"><span class="label">Tesouros</span><span class="valor">1</span></div><div class="item"><span class="label">N&#192;vel ganhos</span><span class="valor">1</span></div></div>
+
+      <div class="carta-fuga">
+        <div class="label">Fuga</div>
+        <div class="valor">Ao fugir, descarte uma carta da mão.</div>
+      </div>
+
+      <div class="carta-footer" style="display: flex; justify-content: space-between; font-size: 11px; color: var(--cor-secundario); padding-top: 8px; margin-top: 16px; border-top: 1px solid rgba(200,168,130,0.1);">
+        <span>M008: M008</span>
+        <span>Universo: As Cr&#244;nicas do V&#233;u Partido</span>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
