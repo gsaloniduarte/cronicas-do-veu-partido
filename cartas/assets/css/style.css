@@ -1,445 +1,561 @@
-
 /* ============================================================
-   AS CRÔNICAS DO VÉU PARTIDO - CARTAS
-   Tema: Fantasia Medieval Sombria | Iluminação Dramática
+   AS CRÔNICAS DO VÉU PARTIDO — ESTILOS PRA MOEDA
+   Tema premium: pintura de fantasia professional, dourados,
+   armaduras, magia, iluminação dramática.
    ============================================================ */
 
 :root {
-  --cor-fundo: #1a1410;
-  --cor-fundo-suave: #2a2018;
-  --cor-papel: #f5e8d0;
-  --cor-papel-escuro: #e8dcc0;
-  --cor-texto: #1a1410;
-  --cor-texto-claro: #e8dcc0;
-  --cor-secundario: #8b7355;
-  --cor-destaque: #c4a882;
-  --cor-magra: #5c3a21;
-  --cor-brilho: #ffd700;
-  --cor-rua: #6b3a2a;
-  --cor-gel: #4a5568;
-  --sombra-principal: 0 4px 20px rgba(0,0,0,0.9);
-  --sombra-secundaria: 0 2px 10px rgba(0,0,0,0.7);
-  --borda: 2px solid rgba(200, 168, 130, 0.3);
-  --borda-brilho: 2px solid rgba(255, 215, 0, 0.5);
-  --fonte-principal: 'Georgia', 'Times New Roman', serif;
-  --fonte-secundaria: 'Courier New', monospace;
-  --transicao: all 0.3s ease;
+  --preto-escuro: #0a0806;
+  --preto: #14100d;
+  --preto-medio: #1e1712;
+  --papel: #1a120c;
+  --papel-claro: #2a1f12;
+
+  --dourado-claro: #f4d47a;
+  --dourado-acucarado: #e8c55a;
+  --dourado-medio: #c89a3a;
+  --dourado-escuro: #9a731a;
+  --dourado-velho: #b8943a;
+
+  --azul-arcano-escuro: #1a1a3a;
+  --azul-arcano: #2a2a5a;
+  --azul-arcano-claro: #4a4a8a;
+  --azul-arcano-magia: #6a4a8a;
+
+  --vermelho-incandescente: #c41e26;
+  --vermelho-quente: #e84545;
+  --vermelho-sangue: #8b1a20;
+
+  --verde-natural: #2d5a27;
+  --verde-escuro: #1a3a1a;
+
+  --cinza-ouro: #c8a05a;
+  --bronze: #8a5a1a;
+
+  --branco-pergaminho: #e8dcc8;
+  --cinza-argela: #a89878;
+
+  --texto: #ece4d0;
+  --texto-claro: #f5ede0;
+  --texto-carbono: #2a2018;
+
+  --sombra-escura: rgba(10, 8, 6, 0.85);
+  --sombra-moderada: rgba(16, 10, 6, 0.5);
+  --brilho: rgba(244, 212, 122, 0.3);
 }
 
-/* ============================================================
-   RESET & BASE
-   ============================================================ */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: var(--fonte-principal);
-  background: var(--cor-fundo);
-  color: var(--cor-texto);
+  font-family: 'EldritchSerif', 'Georgia', 'Times New Roman', serif;
+  background: var(--preto-escuro);
+  color: var(--texto);
   line-height: 1.6;
   min-height: 100vh;
 }
 
-/* ============================================================
-   GALERIA PRINCIPAL
-   ============================================================ */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 255, 255, 0.015) 2px,
+      rgba(255, 255, 255, 0.015) 4px
+    ),
+    radial-gradient(ellipse at 30% 20%, rgba(74, 58, 33, 0.6) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(138, 90, 26, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.75) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 24px;
   padding: 40px 20px;
   max-width: 1400px;
   margin: 0 auto;
+  justify-items: center;
+  position: relative;
+  z-index: 1;
 }
 
-/* ============================================================
-   CARTA
-   ============================================================ */
-.carta {
-  background: var(--cor-fundo-suave);
-  border: var(--borda);
+.carta-galeria {
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  color: var(--texto);
   border-radius: 4px;
   overflow: hidden;
-  box-shadow: var(--sombra-principal);
-  transition: var(--transicao);
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-}
-
-.carta:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.9);
-  border-color: rgba(200, 168, 130, 0.6);
-}
-
-/* ============================================================
-   CAPA DA CARTA
-   ============================================================ */
-.carta-capa {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
   position: relative;
+}
+
+.carta-galeria:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.8);
+}
+
+.carta-capa-galeria {
   width: 100%;
   aspect-ratio: 4/5;
-  overflow: hidden;
-  background: linear-gradient(135deg, var(--cor-rua), var(--cor-magra));
   display: flex;
   align-items: flex-end;
+  background: linear-gradient(135deg, var(--preto-medio), var(--preto-escuro));
+  position: relative;
+  overflow: hidden;
 }
 
-.carta-capa img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transicao);
-}
-
-.carta:hover .carta-capa img {
-  filter: brightness(1.1) contrast(1.05);
-}
-
-.carta-capa::after {
+.carta-capa-galeria::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(26,20,16,0.6) 0%, rgba(26,20,16,0.3) 50%, rgba(26,20,16,0.8) 100%);
+  background: linear-gradient(180deg, rgba(10, 8, 6, 0.6) 0%, rgba(10, 8, 6, 0.2) 50%, rgba(10, 8, 6, 0.7) 100%);
+  z-index: 2;
 }
 
-/* Brilho ao redor */
-.carta-capa::before {
+.carta-capa-galeria::after {
   content: '';
   position: absolute;
-  inset: -2px;
-  border: 2px solid rgba(255, 215, 0, 0.2);
-  border-radius: 2px;
+  inset: 0;
+  border: 2px solid rgba(244, 212, 122, 0.15);
   pointer-events: none;
 }
 
-/* ============================================================
-   CORPO DA CARTA
-   ============================================================ */
-.carta-corpo {
-  padding: 20px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
+.carta-fundo-galeria {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0.15;
+  z-index: 0;
 }
 
-/* Indicador de tipo */
-.carta-indicador {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 3px;
-  font-family: var(--fonte-secundaria);
-  font-size: 11px;
+.carta-header-galeria {
+  position: relative;
+  z-index: 3;
+  padding: 20px 16px 18px;
+  background: linear-gradient(0deg, rgba(10, 8, 6, 0.95), rgba(10, 8, 6, 0.85));
+  border-top: 1px solid rgba(244, 212, 122, 0.12);
+}
+
+.carta-header-galeria .categoria {
+  font-family: 'EldritchGothic', 'Arial Black', sans-serif;
+  font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 12px;
+  letter-spacing: 3px;
+  color: var(--dourado-acucarado);
+  margin-bottom: 6px;
+  display: block;
 }
 
-.carta-indicador.masmorra {
-  background: rgba(92, 58, 33, 0.8);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.tesouro {
-  background: rgba(74, 85, 104, 0.8);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.monstro {
-  background: rgba(92, 58, 33, 0.8);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.maldicao {
-  background: rgba(107, 58, 42, 0.8);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.equipamento {
-  background: rgba(74, 85, 104, 0.8);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.uso-unico {
-  background: rgba(200, 168, 130, 0.3);
-  color: var(--cor-brilho);
-}
-
-.carta-indicador.item {
-  background: rgba(74, 85, 104, 0.8);
-  color: var(--cor-brilho);
-}
-
-/* Nome */
-.carta-nome {
-  font-family: var(--fonte-principal);
+.carta-header-galeria .nome {
+  font-family: 'EldritchSerif', 'Georgia', serif;
   font-size: 22px;
   font-weight: bold;
-  color: var(--cor-texto-claro);
+  color: var(--texto-claro);
+  line-height: 1.2;
+}
+
+.carta-header-galeria .tipo {
+  font-size: 12px;
+  color: var(--cinza-ouro);
+  margin-top: 4px;
+  display: block;
+}
+
+.carta-detalhe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px 32px;
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
+  background: var(--preto-escuro);
+}
+
+.carta-detalhe .back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: rgba(16, 12, 8, 0.8);
+  border: 1px solid rgba(244, 212, 122, 0.15);
+  border-radius: 3px;
+  color: var(--texto);
+  text-decoration: none;
+  font-family: 'EldritchGothic', sans-serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+}
+
+.carta-detalhe .back-link:hover {
+  border-color: rgba(244, 212, 122, 0.4);
+  background: rgba(244, 212, 122, 0.08);
+}
+
+.carta-detalhe h1 {
+  font-family: 'EldritchSerif', 'Georgia', serif;
+  font-size: 42px;
+  font-weight: bold;
+  color: var(--texto-claro);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  line-height: 1.2;
   margin-bottom: 8px;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
 }
 
-/* Subtipo */
-.carta-subtipo {
-  font-size: 13px;
-  color: var(--cor-secundario);
-  margin-bottom: 12px;
-  font-style: italic;
+.carta-detalhe .subtitulo {
+  font-family: 'EldritchGothic', 'Arial', sans-serif;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dourado-acucarado);
+  margin-bottom: 24px;
 }
 
-/* Separador */
-.carta-separador {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(200, 168, 130, 0.2), transparent);
-  margin: 12px 0;
+.quadro-ilustracao {
+  width: 100%;
+  max-width: 700px;
+  aspect-ratio: 4/5;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--azul-arcano-escuro), var(--preto-escuro));
+  box-shadow:
+    0 0 0 1px rgba(244, 212, 122, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    inset 0 0 80px rgba(20, 10, 5, 0.6);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: flex-end;
+  transition: box-shadow 0.35s ease;
 }
 
-/* Descrição visual */
-.carta-visual {
-  font-size: 13px;
-  color: var(--cor-secundario);
-  margin-bottom: 12px;
-  line-height: 1.5;
+.quadro-ilustracao:hover {
+  box-shadow:
+    0 0 0 1px rgba(244, 212, 122, 0.15),
+    0 20px 60px rgba(0, 0, 0, 0.9),
+    inset 0 0 80px rgba(20, 10, 5, 0.7);
 }
 
-/* Dados numéricos */
-.carta-dados {
+.quadro-ilustracao::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 30% 40%, rgba(244, 212, 122, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 60%, rgba(100, 70, 150, 0.06) 0%, transparent 50%),
+    linear-gradient(180deg, rgba(10, 8, 6, 0.4) 0%, rgba(10, 8, 6, 0.7) 100%);
+  z-index: 1;
+}
+
+.quadro-ilustracao::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(244, 212, 122, 0.12);
+  z-index: 2;
+}
+
+.quadro-ilustracao img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+}
+
+.quadro-ilustracao .quadro-label {
+  position: relative;
+  z-index: 3;
+  padding: 16px 20px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.quadro-ilustracao .quadro-label .id {
+  font-family: 'EldritchGothic', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: var(--dourado-velho);
+  border: 1px solid rgba(244, 212, 122, 0.12);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.quadro-ilustracao .quadro-label .tipo-badge {
+  font-family: 'EldritchGothic', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(244, 212, 122, 0.7);
+}
+
+.informacoes {
+  width: 100%;
+  max-width: 700px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.serie-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 12px;
+  gap: 12px;
 }
 
-.carta-dados-grid {
-  background: rgba(200, 168, 130, 0.05);
-  border-left: 2px solid rgba(255, 215, 0, 0.3);
-  padding: 8px 10px;
-  border-radius: 0 3px 3px 0;
-  font-size: 12px;
-}
-
-.carta-dados-grid .label {
-  font-size: 10px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--cor-secundario);
-  margin-bottom: 2px;
-  font-family: var(--fonte-secundaria);
-}
-
-.carta-dados-grid .valor {
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--cor-brilho);
-}
-
-/* Efeito */
-.carta-efeito {
-  background: rgba(92, 58, 33, 0.15);
-  border-left: 2px solid rgba(200, 168, 130, 0.3);
-  padding: 10px 12px;
+.serie-item {
+  background: rgba(16, 12, 8, 0.4);
+  border-left: 2px solid rgba(244, 212, 122, 0.12);
+  padding: 10px 14px;
   border-radius: 0 3px 3px 0;
   font-size: 13px;
-  line-height: 1.5;
-  flex: 1;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
 }
 
-.carta-efeito .label {
+.serie-item .label {
+  font-family: 'EldritchGothic', 'Arial', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--cor-secundario);
-  margin-bottom: 4px;
-  font-family: var(--fonte-secundaria);
+  color: var(--cinza-ouro);
+  min-width: 90px;
+  padding-top: 2px;
 }
 
-.carta-efeito .valor {
-  font-size: 14px;
-  color: var(--cor-brilho);
+.serie-item .valor {
+  color: var(--texto-claro);
+  font-size: 15px;
+  line-height: 1.4;
 }
 
-/* Recompensa */
-.carta-recompensa {
+.serie-item.verde .label {
+  color: var(--verde-natural);
+  border-left-color: var(--verde-natural);
+}
+
+.serie-item.verde .valor {
+  color: #b8d8b0;
+}
+
+.serie-item.vermelho .label {
+  color: var(--vermelho-sangue);
+  border-left-color: var(--vermelho-incandescente);
+}
+
+.serie-item.vermelho .valor {
+  color: #eb8a8a;
+}
+
+.serie-item.azul .label {
+  color: var(--azul-arcano-claro);
+  border-left-color: var(--azul-arcano);
+}
+
+.serie-item.azul .valor {
+  color: #b8b0d8;
+}
+
+.serie-item.dourado .label {
+  color: var(--dourado-velho);
+  border-left-color: var(--dourado-acucarado);
+}
+
+.serie-item.dourado .valor {
+  color: #f0d8a0;
+}
+
+.efeito-card {
+  background: rgba(10, 8, 6, 0.7);
+  border-left: 3px solid var(--dourado-acucarado);
+  padding: 16px 18px;
+  border-radius: 0 3px 3px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--texto);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.efeito-card .label {
+  font-family: 'EldritchGothic', sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--dourado-velho);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.efeito-card .valor {
+  color: var(--texto-claro);
+}
+
+.recompensa {
   display: flex;
-  gap: 16px;
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(200, 168, 130, 0.2);
+  gap: 20px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(244, 212, 122, 0.08);
 }
 
-.carta-recompensa-grid {
+.recompensa-item {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  padding: 12px 14px;
+  background: rgba(16, 12, 8, 0.3);
+  border-radius: 3px;
+  font-size: 13px;
+  border: 1px solid rgba(244, 212, 122, 0.06);
 }
 
-.carta-recompensa-grid .item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 12px;
-  padding: 4px 0;
-  border-bottom: 1px solid rgba(200, 168, 130, 0.1);
-}
-
-.carta-recompensa-grid .item:last-child {
-  border-bottom: none;
-}
-
-.carta-recompensa-grid .item .label {
-  color: var(--cor-secundario);
+.recompensa-item .label {
+  font-family: 'EldritchGothic', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  color: var(--cinza-ouro);
 }
 
-.carta-recompensa-grid .item .valor {
+.recompensa-item .valor {
+  color: var(--dourado-claro);
+  font-size: 18px;
   font-weight: bold;
-  color: var(--cor-brilho);
 }
 
-/* Fuga */
-.carta-fuga {
-  background: rgba(107, 58, 42, 0.15);
-  border-left: 2px solid rgba(200, 168, 130, 0.3);
-  padding: 10px 12px;
+.fuga {
+  background: rgba(20, 10, 6, 0.6);
+  border-left: 3px solid var(--azul-arcano);
+  padding: 16px 18px;
   border-radius: 0 3px 3px 0;
-  font-size: 13px;
-  line-height: 1.5;
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--texto);
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.2);
   margin-top: auto;
 }
 
-.carta-fuga .label {
+.fuga .label {
+  font-family: 'EldritchGothic', sans-serif;
   font-size: 10px;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  color: var(--cor-secundario);
-  margin-bottom: 4px;
-  font-family: var(--fonte-secundaria);
+  letter-spacing: 2px;
+  color: var(--azul-arcano-claro);
+  margin-bottom: 6px;
+  display: block;
 }
 
-.carta-fuga .valor {
-  font-size: 14px;
-  color: var(--cor-brilho);
+.fuga .valor {
+  color: var(--texto-claro);
 }
 
-/* Footer */
-.carta-footer {
-  display: flex;
-  justify-content: space-between;
+.carta-rodape {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 24px;
+  text-align: center;
+  font-family: 'EldritchGothic', sans-serif;
   font-size: 11px;
-  color: var(--cor-secundario);
-  padding-top: 8px;
-  margin-top: 16px;
-  border-top: 1px solid rgba(200, 168, 130, 0.1);
+  color: rgba(244, 212, 122, 0.3);
+  letter-spacing: 1px;
+  padding: 16px;
+  border-top: 1px solid rgba(244, 212, 122, 0.06);
 }
 
-.carta-footer span {
-  font-family: var(--fonte-secundaria);
-}
-
-/* ============================================================
-   TECLAS ESPECIAIS
-   ============================================================ */
-.carta-efeito-kw {
-  color: var(--cor-brilho);
-  font-weight: bold;
-}
-
-.carta-fuga-kw {
-  color: var(--cor-brilho);
-  font-weight: bold;
-}
-
-/* ============================================================
-   PAGINAÇÃO
-   ============================================================ */
-.paginação {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  padding: 40px 20px;
-  flex-wrap: wrap;
-}
-
-.paginação a {
-  padding: 10px 24px;
-  background: var(--cor-fundo-suave);
-  border: var(--borda);
-  border-radius: 3px;
-  color: var(--cor-texto-claro);
-  text-decoration: none;
-  font-family: var(--fonte-principal);
-  transition: var(--transicao);
-}
-
-.paginação a:hover {
-  background: rgba(200, 168, 130, 0.1);
-  border-color: rgba(200, 168, 130, 0.6);
-}
-
-.paginação a.ativo {
-  background: rgba(200, 168, 130, 0.2);
-  border-color: var(--cor-brilho);
-  color: var(--cor-brilho);
-}
-
-/* ============================================================
-   BOTÕES ESPECIAIS
-   ============================================================ */
-.btn-generar {
-  display: inline-block;
-  padding: 12px 28px;
-  background: linear-gradient(135deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1));
-  border: 2px solid var(--cor-brilho);
-  border-radius: 3px;
-  color: var(--cor-brilho);
-  font-family: var(--fonte-principal);
-  font-size: 14px;
-  cursor: pointer;
-  transition: var(--transicao);
-  margin-top: 16px;
-}
-
-.btn-generar:hover {
-  background: rgba(255,215,0,0.3);
-  transform: scale(1.05);
-}
-
-/* ============================================================
-   RESPONSIVO
-   ============================================================ */
 @media (max-width: 768px) {
   .galeria {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding: 24px 12px;
+    gap: 16px;
+  }
+
+  .carta-detalhe {
+    padding: 24px 16px 16px;
+  }
+
+  .carta-detalhe h1 {
+    font-size: 30px;
+  }
+
+  .serie-grid {
     grid-template-columns: 1fr;
-    padding: 20px 10px;
   }
-  
-  .carta-nome {
-    font-size: 18px;
-  }
-  
-  .carta-dados {
-    grid-template-columns: 1fr;
-  }
-  
-  .carta-recompensa {
-    flex-direction: column;
+
+  .quadro-ilustracao {
+    max-width: 100%;
   }
 }
 
-/* ============================================================
-   EXTRA: Acessibilidade
-   ============================================================ */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    transition: none !important;
+@media (max-width: 480px) {
+  .galeria {
+    grid-template-columns: 1fr;
+    padding: 16px 8px;
   }
+
+  .carta-detalhe h1 {
+    font-size: 24px;
+  }
+
+  .informacoes {
+    max-width: 100%;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.carta-detalhe {
+  animation: fadeInUp 0.5s ease;
+}
+
+.quadro-ilustracao {
+  animation: fadeInUp 0.6s ease;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--preto-escuro);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--dourado-acucarado);
+  border-radius: 5px;
+  border: 2px solid var(--preto-escuro);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--dourado-claro);
 }
